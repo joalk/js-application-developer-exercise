@@ -5,15 +5,18 @@ import backgrounds from './backgrounds.js';
 
 
 function App() {
-
+  // set background hook
   const [bg, setBg] = useState(logo);
 
+  //useEffect to render and console.log current background for each update
   useEffect(() => console.log(bg), [bg]);
 
+  // sets background every time user selects new background
   const handleClick = (e) => {
     setBg(`${e.target.value}`)
   }
 
+  // create option components for each background, including name and type of background
   let list = [<option value="please-choose-background">--Please Choose Background--</option>];
   for (let i = 0; i < backgrounds.length; i++) {
     list.push(<option value={`${backgrounds[i].name}.${backgrounds[i].type}`}>{backgrounds[i].name}</option>)
@@ -21,6 +24,7 @@ function App() {
 
 
   return (
+    // will return video background if bg hook ends with mp4, otherwise will return img background
     <div className="App-header">
       {bg.includes('mp4') ? <video playsInline autoPlay muted loop>
         <source src={`${process.env.PUBLIC_URL}${bg}`} type="video/mp4" />
