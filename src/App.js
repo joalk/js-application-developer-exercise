@@ -19,7 +19,7 @@ function App() {
   // create option components for each background, including name and type of background
   let list = [<option value="please-choose-background">--Please Choose Background--</option>];
   for (let i = 0; i < backgrounds.length; i++) {
-    list.push(<option value={`${backgrounds[i].name}.${backgrounds[i].type}`}>{backgrounds[i].name}</option>)
+    list.push(<option key={i} value={`${backgrounds[i].name}.${backgrounds[i].type}`}>{backgrounds[i].name}</option>)
   }
 
 
@@ -28,7 +28,7 @@ function App() {
     <div className="App-header">
       {bg.includes('mp4') ? <video playsInline autoPlay muted loop>
         <source src={`${process.env.PUBLIC_URL}${bg}`} type="video/mp4" />
-    </video> : <img src={`${process.env.PUBLIC_URL}${bg}`} alt="logo" />}
+        </video> : <img src={`${process.env.PUBLIC_URL}${bg}`} alt="logo" />}
           <select name="select-bg" id="select-bg" onChange={handleClick} value={bg}>
             {list}
           </select>

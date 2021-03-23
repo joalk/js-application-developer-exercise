@@ -5,6 +5,7 @@
   min-height: 100vh;
   max-height: 100vh;
   overflow: hidden;
+  transition: all 0.5s ease;
 }
 
 .App-header > img,
@@ -18,6 +19,7 @@
   z-index: -2;
   object-fit: cover;
   object-position: center center;
+  transition: opacity 1s ease-in-out;
 }
 
 .App-header > .isActive {
