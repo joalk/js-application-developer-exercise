@@ -26,8 +26,7 @@ function App() {
   return (
     // will return video background if bg hook ends with mp4, otherwise will return img background
     <div className="App-header">
-      {bg.includes('mp4') ? <video playsInline autoPlay muted loop>
-        <source src={`${process.env.PUBLIC_URL}${bg}`} type="video/mp4" />
+      {bg.includes('mp4') ? <video playsInline autoPlay muted loop src={`${process.env.PUBLIC_URL}${bg}`}>
         </video> : <img src={`${process.env.PUBLIC_URL}${bg}`} alt="logo" />}
           <select name="select-bg" id="select-bg" onChange={handleClick} value={bg}>
             {list}
